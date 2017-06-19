@@ -1,0 +1,9 @@
+<source>
+  @type syslog
+  port 5140
+  bind 0.0.0.0
+  format /^(?<time>[^ ]*\s*[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? (?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*)+ \S*)?" (?<code>[^ ]*) (?<size>[^ ]*) (?<request_time>[^ ]*) "(?<referer>[^\"]*)" "(?<agent>[^\"]*)"$/ 
+  time_format %d/%b/%Y:%H:%M:%S %z
+  tag nginx.access
+  types size:integer
+</source>
